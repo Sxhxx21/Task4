@@ -1,0 +1,111 @@
+//Task 4: Create a Rock Paper Scissor Game in Java 
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Task4 {
+    public static void main(String[] args) {
+
+        // Declare variables of type integer
+        int YourChoice, computerChoice, rock, paper, scissor;
+
+        // create input object so as to use it's methods for geting user input
+        Scanner input = new Scanner(System.in);
+
+        // create a random input for the computer
+        Random rnd = new Random();
+
+        // Assign values to the following variables for easier implementation
+        rock = 0;
+        paper = 1;
+        scissor = 2;
+
+        System.out.println("******** ROCK - PAPER - SCISSOR GAME ********");
+        System.out.println("Enter your choice (0=Rock, 1=Paper, 2=Scissor)");
+        // User input
+        YourChoice = input.nextInt();
+        // if user chooses above 2
+        while (YourChoice > 2) {
+            System.out.println("Give number between 0 and 2");
+            YourChoice = input.nextInt();
+        }
+        // user selections
+        if (YourChoice == rock) {
+            System.out.println("You chose ROCK.");
+        } else {
+            if (YourChoice == paper) {
+                System.out.println("You chose PAPER.");
+            } else {
+                System.out.println("You chose SCISSOR.");
+            }
+        }
+        // computer input (random)
+        computerChoice = rnd.nextInt(3);
+
+        // computer selection
+        if (computerChoice == rock) {
+            System.out.println("Computer chose ROCK.");
+        } else {
+            if (computerChoice == paper) {
+                System.out.println("Computer chose PAPER.");
+            } else {
+                System.out.println("Computer chose SCISSOR.");
+            }
+        }
+
+        // Results section
+
+        // Draw
+        while (YourChoice == computerChoice) {
+            System.out.println("Draw! Try Again.");
+
+            // if user chooses above 2
+            YourChoice = input.nextInt();
+            while (YourChoice > 2) {
+                System.out.println("Give number between 0 and 2");
+                YourChoice = input.nextInt();
+            }
+            computerChoice = rnd.nextInt(3);
+            // DRAW user selections
+            if (YourChoice == rock) {
+                System.out.println("You chose ROCK.");
+            } else {
+                if (YourChoice == paper) {
+                    System.out.println("You chose PAPER.");
+                } else {
+                    System.out.println("You chose SCISSORS.");
+                }
+            }
+            // DRAW computer selection
+            if (computerChoice == rock) {
+                System.out.println("Computer chose ROCK.");
+            } else {
+                if (computerChoice == paper) {
+                    System.out.println("Computer chose PAPER.");
+                } else {
+                    System.out.println("Computer chose SCISSORS.");
+                }
+            }
+        }
+
+        // RESULTS
+        if (computerChoice == rock) {
+            if (YourChoice == paper) {
+                System.out.println("Congrats! You Won.");
+            } else {
+                System.out.println("Oops! Computer Won");
+            }
+        } else if (computerChoice == paper) {
+            if (YourChoice == rock) {
+                System.out.println("Oops! Computer Won.");
+            } else {
+                System.out.println("Congrats! You Won.");
+            }
+        } else if (YourChoice == rock) {
+            System.out.println("Congrats! You Won.");
+        } else {
+            System.out.println("Oops! Computer Won.");
+        }
+    }
+
+}
